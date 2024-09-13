@@ -1,0 +1,29 @@
+{
+  "name": "brain-ag-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/server.js",
+    "start:dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "9.10.0",
+    "@types/node": "22.5.4",
+    "eslint": "9.10.0",
+    "globals": "15.9.0",
+    "tsup": "8.2.4",
+    "tsx": "4.19.1",
+    "typescript": "5.6.2",
+    "typescript-eslint": "8.5.0"
+  },
+  "dependencies": {
+    "dotenv": "16.4.5",
+    "fastify": "^4.28.1",
+    "zod": "3.23.8"
+  }
+}
