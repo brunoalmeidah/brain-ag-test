@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Producer {
-  id                      String   @id @default(uuid())
+  id                      String    @id @default(uuid())
   name                    String
   farmName                String
   document                String
@@ -23,8 +23,9 @@ model Producer {
   farmTotalArea           Decimal
   farmUsableTotalArea     Decimal
   farmVegetationTotalArea Decimal
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+  deletedAt               DateTime?
   crops                   Crop[]
 
   @@map("producers")
