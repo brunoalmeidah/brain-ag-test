@@ -14,7 +14,7 @@ export class CropRepository implements ICropRepository {
         inner join producers p on ctp."B" = p.id 
       group by c.id 
     `;
-    console.log(result);
+
     const total = result.reduce((acc, curr) => acc + Number(curr.value), 0);
 
     return result.map((item) => ({
