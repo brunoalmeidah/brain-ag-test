@@ -1,7 +1,7 @@
 
 # Brain ag test
 
-CRUD para manutenção de cadastro de produtor rural
+API para manutenção de cadastro de produtor rural
 
 
 ## Instalação

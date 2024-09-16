@@ -1,7 +1,8 @@
 import { validateCNPJ } from "@/helpers/validateCNPJ";
 import { validateCPF } from "@/helpers/validateCPF";
-import { IProducerRepository } from "@/repositories/interfaces/IProducerRepository";
 import { AppError } from "./errors/appError";
+import { Producer } from "@prisma/client";
+import { IProducerRepository } from "@/repositories/interfaces/IProducerRepository";
 
 interface CreateProducerProps {
   name: string;
@@ -14,10 +15,11 @@ interface CreateProducerProps {
   farmVegetationTotalArea: number;
   crops: number[];
 }
+
 export class CreateProducerUseCase {
   constructor(private producerRepository: IProducerRepository) {}
 
-  async execute(data: CreateProducerProps) {
+  async execute(data: CreateProducerProps): Promise<Producer> {
     const isDocumentValid =
       validateCNPJ(data.document) || validateCPF(data.document);
 

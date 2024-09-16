@@ -1,5 +1,7 @@
 import { IProducerRepository } from "@/repositories/interfaces/IProducerRepository";
 import { AppError } from "./errors/appError";
+import { validateCNPJ } from "@/helpers/validateCNPJ";
+import { validateCPF } from "@/helpers/validateCPF";
 
 interface UpdateProducerProps {
   name: string;
@@ -20,6 +22,11 @@ export class UpdateProducerUseCase {
     const producer = await this.producerRepository.findOneById(producerId);
 
     if (!producer) throw new AppError("Produtor não encontrado");
+
+    const isDocumentValid =
+      validateCNPJ(data.document) || validateCPF(data.document);
+
+    if (!isDocumentValid) throw new AppError("Documento inválido");
 
     const sumOfArea = data.farmUsableTotalArea + data.farmVegetationTotalArea;
 

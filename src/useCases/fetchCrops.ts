@@ -5,7 +5,6 @@ export class FetchCropsUseCase {
 
   async execute() {
     const crops = await this.cropRepository.findAll();
-
     return crops;
   }
 }
